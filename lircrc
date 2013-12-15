@@ -1,0 +1,32 @@
+#/etc/lirc/lircrc
+# Listing 4
+begin
+ prog = irexec
+ button = KEY_POWER
+ config = sudo -u pi /home/pi/remote.sh power
+end
+begin
+ prog = irexec
+ button = KEY_NEXT
+ config = sudo -u pi /home/pi/remote.sh next
+end
+begin
+ prog = irexec
+ button = KEY_PREVIOUS
+ config = sudo -u pi /home/pi/remote.sh prev
+end
+begin
+ prog = irexec
+ button = KEY_VOLUMEUP
+ config = sudo -u pi /home/pi/remote.sh volup
+end
+begin
+ prog = irexec
+ button = KEY_VOLUMEDOWN
+ config = sudo -u pi /home/pi/remote.sh voldown
+end
+begin
+ prog = irexec
+ button = KEY_PLAY
+ config = sudo -u pi /home/pi/remote.sh play
+end
