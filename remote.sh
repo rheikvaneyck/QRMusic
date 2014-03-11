@@ -1,10 +1,13 @@
 #!/bin/bash
 # Listing 5
 AUDIODEV=hw:0
+VIDEODEV=/dev/video0
+OPTIONS="--nodisplay -Sdisable -Sqrcode.enable --prescale=320x240 -Sposition=disable"
+
 arg="$1"
 case $arg in
 "power")
-        zbarcam --nodisplay -Sdisable -Sqrcode.enable --prescale=320x240 /dev/video0 | /home/pi/rbar.sh
+        zbarcam ${OPTIONS} ${VIDEODEV} | /home/pi/rbar.sh
         ;;
 "next")
         echo "Next Song"
