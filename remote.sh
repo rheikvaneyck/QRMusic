@@ -1,5 +1,6 @@
 #!/bin/bash
 # Listing 5
+APPDIR=$(dirname $(readlink -f $0))
 AUDIODEV=hw:0
 VIDEODEV=/dev/video0
 OPTIONS="--nodisplay -Sdisable -Sqrcode.enable --prescale=320x240 -Sposition=disable"
@@ -7,7 +8,7 @@ OPTIONS="--nodisplay -Sdisable -Sqrcode.enable --prescale=320x240 -Sposition=dis
 arg="$1"
 case $arg in
 "power")
-        zbarcam ${OPTIONS} ${VIDEODEV} | /home/pi/rbar.sh
+        ( zbarcam ${OPTIONS} ${VIDEODEV} | ${APPDIR}/rbar.sh ) 
         ;;
 "next")
         echo "Next Song"
@@ -29,9 +30,9 @@ case $arg in
 "play")
         echo "toggle playback"
         xmms2 toggle
-        status=`xmms2 current`
+        status=$(xmms2 current)
         if [[ "$status" =~ ^Paused ]]; then
-                play -q /home/pi/no.wav
+                ( aplay -q ${APPDIR}/no.wav )
         fi
         ;;
 esac
