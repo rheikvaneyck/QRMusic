@@ -1,1 +1,8 @@
+#Windows Thumbnail Cache
 Thumbs.db
+
+# LibreOffice locks
+.~lock.*#
+
+# MS Office locks
+~$*
