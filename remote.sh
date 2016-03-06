@@ -3,7 +3,7 @@
 APPDIR=$(dirname $(readlink -f $0))
 AUDIODEV=hw:0
 VIDEODEV=/dev/video0
-OPTIONS="--nodisplay -Sdisable -Sqrcode.enable --prescale=320x240 -Sposition=disable"
+OPTIONS="--nodisplay -Sdisable -Sqrcode.enable --prescale=320x240 -Sposition=disable --raw"
 
 arg="$1"
 case $arg in
